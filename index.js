@@ -45,11 +45,12 @@ function Person(name, age) {
   this.stomach = []
 }
 
-    // need to push the food into array stomach, up to 10
+    // need to push the food into array stomach, up to 10...from Office Hours
 Person.prototype.eat = function (SomeFood) {
-  return this.stomach.push(SomeFood);
+  if (this.stomach.length < 10){
+    this.stomach.push(SomeFood)
+  } else console.log("TOO HEAVY")
 }
-
     // need to empty array once executed
 Person.prototype.poop = function () {
   return this.stomach.length = 0;
@@ -59,6 +60,10 @@ Person.prototype.poop = function () {
 Person.prototype.toString = function () {
   return (`${this.name}, ${this.age}`)
 }
+
+// testing 
+
+console.log('Testing')
 
 /*
   TASK 2
@@ -82,7 +87,7 @@ function Car(model, milesPerGallon) {
   } 
 
   Car.prototype.fill = function (gallons) {
-    return this.tank + gallons;
+      this.tank = this.tank + gallons;
 }
 
 
@@ -95,18 +100,20 @@ function Car(model, milesPerGallon) {
 */
 
 //Writing a Baby constructor subclassing Person
-function Baby(babyAttributes) {
-  Person.call (this, babyAttributes);
-  this.isBaby = babyAttributes.isBaby;
-
+function Baby (name, age, favoriteToy){
+  // this.name = name;
+  // this.age = age;
+  this.favoriteToy = favoriteToy;
+  // Below rips the name and age items from Person function so we don't need to repeat above, I commented out
+  Person.call(this, name, age)
 }
 
 //giving Baby the same prototypes from Person
 Baby.prototype = Object.create(Person.prototype);
 
 //giving baby new Prototype, to play
-Baby.prototype.play = function (SomeFood) {
-  this.play = true;
+Baby.prototype.play = function (favoriteToy) {
+  return `Playing with ${this.favoriteToy}`;
 }
 
 
