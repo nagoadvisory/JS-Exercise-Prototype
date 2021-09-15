@@ -6,7 +6,7 @@
         + If a plane takes off, its `isFlying` property is set to true.
         + If a plane lands, its `isFlying` property is set to false.
 */
-TESTING
+
 // EXAMPLE SOLUTION CODE:
 function Airplane(name) {
   this.name = name;
@@ -40,7 +40,22 @@ Airplane.prototype.land = function () {
 */
 
 function Person() {
+  name: xxx,
+  age: yyy,
+  stomach: [],
+  eat: function () {
+    // need to push the food into array stomach, up to 10
+
+  }
+  poop: function () {
+    // need to empty array once executed
   
+  }
+
+  toString: function() {
+    return (`${this.name}, ${this.age}`)
+  }
+
 }
 
 
@@ -83,10 +98,10 @@ function Baby() {
 /* 
   TASK 4
   In your own words explain the four principles for the "this" keyword below:
-  1. 
-  2. 
-  3. 
-  4. 
+  1. Window Binding - not something we want to use really; this happens when this has no context, it defaults to window
+  2. Implicit Binding - most common principle. Think dot method. This applies to bjects with methods (look to the left of the dot and that's "this")
+  3. Explicit Binding - when we explicitly state what we want "this" to refer to....you can use .call(), .apply (), and .bind(); whatever is in the parantheses is what THIS is referring to
+  4. New Binding is used with constructor functions; it says that when using the "new" kewyords that THIS points to the newly created object
 */
 
 
