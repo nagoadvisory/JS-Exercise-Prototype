@@ -58,16 +58,7 @@ Person.prototype.poop = function () {
 // create String function
 Person.prototype.toString = function () {
   return (`${this.name}, ${this.age}`)
-
 }
-
-
-
-
-
-
-
-
 
 /*
   TASK 2
@@ -102,8 +93,20 @@ function Car(model, milesPerGallon) {
     - Besides the methods on Person.prototype, babies have the ability to `.play()`:
         + Should return a string "Playing with x", x being the favorite toy.
 */
-function Baby() {
- 
+
+//Writing a Baby constructor subclassing Person
+function Baby(babyAttributes) {
+  Person.call (this, babyAttributes);
+  this.isBaby = babyAttributes.isBaby;
+
+}
+
+//giving Baby the same prototypes from Person
+Baby.prototype = Object.create(Person.prototype);
+
+//giving baby new Prototype, to play
+Baby.prototype.play = function (SomeFood) {
+  this.play = true;
 }
 
 
